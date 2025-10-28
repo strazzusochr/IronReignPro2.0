@@ -1,21 +1,30 @@
-package com.example.ironreign.ui
-
-import android.os.Bundle
-import android.view.View
-import androidx.fragment.app.Fragment
-import com.example.ironreign.R
-import com.example.ironreign.databinding.FragmentProgressBinding
-
-/**
- * Fragment showing the user's progress over time. In a full implementation
- * MPAndroidChart would be used to render charts. For now a placeholder
- * message is displayed.
- */
-class ProgressFragment : Fragment(R.layout.fragment_progress) {
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentProgressBinding.bind(view)
-        // Display the placeholder in the details TextView, leaving the heading unchanged
-        binding.textProgress.text = getString(R.string.progress_placeholder)
-    }
-}
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_bg"
+    android:padding="24dp">
+    
+    <TextView
+        android:id="@+id/textProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/neon_blue"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Fortschritt" />
+    
+    <TextView
+        android:id="@+id/text_progress"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/neon_blue"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/textProgress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
