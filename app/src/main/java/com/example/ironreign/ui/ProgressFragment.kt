@@ -16,6 +16,6 @@ class ProgressFragment : Fragment(R.layout.fragment_progress) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentProgressBinding.bind(view)
         // Display the placeholder in the details TextView, leaving the heading unchanged
-        binding.textProgress2.text = getString(R.string.progress_placeholder)
+        binding.textProgress.text = getString(R.string.progress_placeholder)
     }
 }
