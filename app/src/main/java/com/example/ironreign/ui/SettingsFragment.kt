@@ -15,6 +15,6 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentSettingsBinding.bind(view)
         // Display the placeholder in the details TextView, leaving the heading unchanged
-        binding.textSettings2.text = getString(R.string.settings_placeholder)
+        binding.textSettings.text = getString(R.string.settings_placeholder)
     }
 }
