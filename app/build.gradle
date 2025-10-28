@@ -1,0 +1,57 @@
+// Module‑level Gradle configuration for the IronReign Android application.
+// This file configures the Android plugin, Kotlin settings, build types and dependencies.
+
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+}
+
+android {
+    namespace = "com.example.ironreign"
+    compileSdk = 34
+
+    defaultConfig {
+        applicationId = "com.example.ironreign"
+        minSdk = 26
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0"
+    }
+
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+}
+
+dependencies {
+    // Core Android libraries
+    implementation("androidx.core:core-ktx:1.13.1")
+    implementation("androidx.appcompat:appcompat:1.7.0")
+    implementation("com.google.android.material:material:1.12.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.2.0")
+
+    // Navigation Component
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+
+    // ARCore dependency for augmented reality capabilities (1.44.0)
+    // Verified via the Maven Central listing which shows the Gradle coordinate
+    // com.google.ar:core:1.44.0【562483942477735†L116-L124】.
+    implementation("com.google.ar:core:1.44.0")
+
+    // ML Kit Pose Detection (accurate mode). The dependency information is taken from
+    // the MVN Repository page for version 17.0.0【323202540340966†L116-L125】.
+    implementation("com.google.mlkit:pose-detection-accurate:17.0.0")
+
+    // MPAndroidChart for displaying progress graphs
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+}

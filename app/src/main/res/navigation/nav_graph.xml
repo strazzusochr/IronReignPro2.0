@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/menuFragment">
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.ironreign.ui.MenuFragment"
+        android:label="@string/app_name">
+        <action
+            android:id="@+id/action_menuFragment_to_trainingsFragment"
+            app:destination="@id/trainingsFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_progressFragment"
+            app:destination="@id/progressFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_nutritionFragment"
+            app:destination="@id/nutritionFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/trainingsFragment"
+        android:name="com.example.ironreign.ui.TrainingsFragment"
+        android:label="@string/menu_trainingsplan" />
+
+    <fragment
+        android:id="@+id/progressFragment"
+        android:name="com.example.ironreign.ui.ProgressFragment"
+        android:label="@string/menu_progress" />
+
+    <fragment
+        android:id="@+id/nutritionFragment"
+        android:name="com.example.ironreign.ui.NutritionFragment"
+        android:label="@string/menu_nutrition" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.ironreign.ui.SettingsFragment"
+        android:label="@string/menu_settings" />
+
+</navigation>

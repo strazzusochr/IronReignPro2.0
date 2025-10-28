@@ -1,0 +1,204 @@
+╔═══════════════════════════════════════════════════════════════════╗
+║                                                                   ║
+║            🏋️  IRONREIGN PRO - APK BUILD ANLEITUNG               ║
+║                                                                   ║
+║                    Windows CMD/PowerShell                         ║
+║                                                                   ║
+╚═══════════════════════════════════════════════════════════════════╝
+
+
+📋 VORAUSSETZUNGEN (Einmalig installieren)
+═══════════════════════════════════════════
+
+1. ☕ Java JDK 17
+   Download: https://adoptium.net/
+   → MSI-Installer herunterladen
+   → Installieren mit "Add to PATH" ✓
+
+2. 📱 Android Studio (für Android SDK)
+   Download: https://developer.android.com/studio
+   → Standard-Installation
+   → SDK Manager öffnen
+   → Android 14.0 (API 34) installieren ✓
+
+3. 🔧 Umgebungsvariablen setzen
+   → Windows-Suche: "Umgebungsvariablen"
+   → Neue Variable: ANDROID_HOME
+   → Wert: C:\Users\DEIN_NAME\AppData\Local\Android\Sdk
+
+
+⚡ SCHNELLSTART - APK BAUEN (3 Schritte)
+═══════════════════════════════════════════
+
+📍 SCHRITT 1: PowerShell öffnen
+   → Windows-Taste drücken
+   → Tippe: "PowerShell"
+   → Als Administrator ausführen
+
+
+📍 SCHRITT 2: Zum Projektordner navigieren
+   
+   cd C:\Downloads\IronReignPro
+   
+   (Ersetze mit deinem Pfad!)
+
+
+📍 SCHRITT 3: Build-Script ausführen
+
+   OPTION A - PowerShell (Empfohlen):
+   ═════════════════════════════════════
+   Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
+   .\build_windows.ps1
+   
+   OPTION B - CMD:
+   ═════════════════════════════════════
+   build_windows.bat
+   
+   OPTION C - Manuell:
+   ═════════════════════════════════════
+   gradlew.bat clean assembleDebug
+
+
+⏱️  WARTEZEIT: 5-10 Minuten (beim ersten Mal)
+    Gradle lädt Abhängigkeiten herunter (~500 MB)
+
+
+✅ FERTIG!
+═══════════════════════════════════════════
+
+APK-Datei befindet sich hier:
+📂 app\build\outputs\apk\debug\app-debug.apk
+
+Größe: ~8-12 MB
+
+
+📱 APK AUF SMARTPHONE INSTALLIEREN
+═══════════════════════════════════════════
+
+METHODE 1 - Manuell (Einfach):
+   1. APK auf Smartphone kopieren
+   2. Einstellungen → Sicherheit → Unbekannte Quellen ✓
+   3. APK-Datei antippen → Installieren
+
+METHODE 2 - Via USB (ADB):
+   1. USB-Debugging aktivieren (siehe unten)
+   2. Smartphone verbinden
+   3. Im CMD/PowerShell:
+      
+      adb install app\build\outputs\apk\debug\app-debug.apk
+
+
+📖 DETAILLIERTE ANLEITUNGEN
+═══════════════════════════════════════════
+
+📄 WINDOWS_BUILD_ANLEITUNG.md
+   → Schritt-für-Schritt mit Screenshots
+   → Troubleshooting für alle Fehler
+   → Release-Build (optimiert)
+
+📄 BUILD_CHEAT_SHEET.md
+   → Alle Befehle auf einen Blick
+   → Copy & Paste ready
+
+📄 QUICK_START.md
+   → 5-Minuten-Schnellanleitung
+
+📄 README.md
+   → Vollständige Projekt-Dokumentation
+
+📄 PROJEKT_ANALYSE.md
+   → Technischer Bericht (30+ Seiten)
+
+
+🔧 HÄUFIGE PROBLEME & LÖSUNGEN
+═══════════════════════════════════════════
+
+❌ "Java wurde nicht gefunden"
+   → JDK 17 installieren: https://adoptium.net/
+   → Bei Installation "Add to PATH" aktivieren
+   → CMD/PowerShell NEU starten
+
+❌ "ANDROID_HOME ist nicht gesetzt"
+   → Android Studio installieren
+   → Umgebungsvariable ANDROID_HOME setzen
+   → CMD/PowerShell NEU starten
+
+❌ "SDK Platform 34 not found"
+   → Android Studio → Tools → SDK Manager
+   → Android 14.0 (API 34) installieren
+
+❌ "Execution policy" Fehler (PowerShell)
+   → Ausführen:
+     Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
+   → Dann Script erneut starten
+
+❌ Build dauert ewig
+   → Normal beim ersten Mal (5-15 Min)
+   → Gradle lädt Dependencies herunter
+   → Weitere Builds: nur 1-3 Minuten
+
+
+📞 USB-DEBUGGING AKTIVIEREN
+═══════════════════════════════════════════
+
+1. Auf dem Smartphone:
+   Einstellungen → Über das Telefon
+   → 7x auf "Build-Nummer" tippen
+   → Entwickleroptionen aktiviert ✓
+
+2. Gehe zu:
+   Einstellungen → Entwickleroptionen
+   → USB-Debugging aktivieren ✓
+
+3. Smartphone via USB verbinden
+   → "USB-Debugging zulassen?" → OK
+
+4. Prüfen (im CMD/PowerShell):
+   adb devices
+   
+   Sollte dein Gerät anzeigen!
+
+
+🎯 EMPFOHLENER ABLAUF
+═══════════════════════════════════════════
+
+1. ✅ Voraussetzungen installieren (siehe oben)
+2. ✅ PowerShell als Admin öffnen
+3. ✅ Zu IronReignPro navigieren
+4. ✅ build_windows.ps1 ausführen
+5. ✅ 5-10 Minuten warten
+6. ✅ APK auf Smartphone kopieren
+7. ✅ Installieren & testen!
+
+
+💡 PRO-TIPPS
+═══════════════════════════════════════════
+
+• Erste Build: 5-15 Min (Downloads)
+• Weitere Builds: 1-3 Min (Cache)
+• Nutze PowerShell-Script für beste UX
+• Script zeigt Fortschritt & öffnet APK-Ordner
+• Bei Problemen: WINDOWS_BUILD_ANLEITUNG.md lesen
+
+
+📦 ALTERNATIVE: ANDROID STUDIO
+═══════════════════════════════════════════
+
+1. Android Studio öffnen
+2. File → Open → IronReignPro-Ordner
+3. Gradle Sync abwarten
+4. Build → Build Bundle(s) / APK(s) → Build APK(s)
+5. Fertig! APK wird automatisch geöffnet
+
+
+═══════════════════════════════════════════════════════════════════
+║                                                                   ║
+║                    VIEL ERFOLG! 💪🚀                             ║
+║                                                                   ║
+║  Bei Fragen: Siehe WINDOWS_BUILD_ANLEITUNG.md                    ║
+║                                                                   ║
+═══════════════════════════════════════════════════════════════════
+
+
+Letzte Aktualisierung: 27. Oktober 2025
+Version: 1.0 (Optimiert & Build-ready)

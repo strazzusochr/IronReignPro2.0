@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Application name -->
+    <string name="app_name">IronReign</string>
+
+    <!-- Menu labels -->
+    <string name="menu_ar_coach">AR Coach starten</string>
+    <string name="menu_trainingsplan">Trainingsplan</string>
+    <string name="menu_progress">Fortschritt</string>
+    <string name="menu_nutrition">Ernährung</string>
+    <string name="menu_settings">Einstellungen</string>
+
+    <!-- Placeholder texts -->
+    <string name="progress_placeholder">Dein Trainingsfortschritt wird hier angezeigt.</string>
+    <string name="nutrition_placeholder">Ernährungstipps werden hier angezeigt.</string>
+    <string name="settings_placeholder">Einstellungen werden hier konfiguriert.</string>
+    <string name="trainings_heading">Trainingsplan</string>
+</resources>

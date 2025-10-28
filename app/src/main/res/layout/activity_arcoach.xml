@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_bg">
+
+    <!-- Camera/AR Surface View would be rendered here
+         In production, use ARCore's ArFragment or SurfaceView -->
+    <FrameLayout
+        android:id="@+id/arSurfaceContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent">
+        
+        <!-- Placeholder for AR rendering -->
+        <TextView
+            android:id="@+id/textArPlaceholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="📱 AR-Kamera wird initialisiert...\n\n✨ Stelle dich vor die Kamera für Pose Detection"
+            android:textAlignment="center"
+            android:textColor="@color/neon_blue"
+            android:textSize="18sp"
+            android:padding="24dp"
+            android:background="#22000000" />
+    </FrameLayout>
+
+    <!-- Status overlay with futuristic design -->
+    <LinearLayout
+        android:id="@+id/statusOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#DD000000"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🎯 AR Coach Aktiv"
+            android:textColor="@color/neon_blue"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textPoseInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Warte auf Pose Detection..."
+            android:textColor="@color/light_gray"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <!-- Control buttons at bottom -->
+    <LinearLayout
+        android:id="@+id/controlButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center"
+        android:background="#DD000000"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnStopAr"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:text="Beenden"
+            android:textColor="@color/neon_blue"
+            app:strokeColor="@color/neon_blue" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPauseAr"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="Pause"
+            android:textColor="@color/dark_bg"
+            app:backgroundTint="@color/neon_blue" />
+
+    </LinearLayout>
+
+    <!-- Feedback/Rep counter (overlay, right side) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/repCounterCard"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="#AA000000"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="8dp"
+        app:layout_constraintTop_toBottomOf="@id/statusOverlay"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/textRepCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/neon_blue"
+                android:textSize="36sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reps"
+                android:textColor="@color/neon_blue"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

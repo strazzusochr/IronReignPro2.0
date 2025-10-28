@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Neon colour palette for the IronReign theme -->
+    <color name="neon_blue">#00FFFF</color>
+    <color name="neon_purple">#B400FF</color>
+    <color name="dark_bg">#000000</color>
+    
+    <!-- Material Design 3 color scheme -->
+    <color name="md_theme_primary">#00FFFF</color>
+    <color name="md_theme_onPrimary">#000000</color>
+    <color name="md_theme_primaryContainer">#004D4D</color>
+    <color name="md_theme_onPrimaryContainer">#00FFFF</color>
+    
+    <color name="md_theme_secondary">#B400FF</color>
+    <color name="md_theme_onSecondary">#000000</color>
+    <color name="md_theme_secondaryContainer">#5A007F</color>
+    <color name="md_theme_onSecondaryContainer">#E6CCFF</color>
+    
+    <color name="md_theme_tertiary">#FF00FF</color>
+    <color name="md_theme_onTertiary">#000000</color>
+    
+    <color name="md_theme_error">#FF5252</color>
+    <color name="md_theme_onError">#000000</color>
+    
+    <color name="md_theme_background">#000000</color>
+    <color name="md_theme_onBackground">#00FFFF</color>
+    
+    <color name="md_theme_surface">#0A0A0A</color>
+    <color name="md_theme_onSurface">#00FFFF</color>
+    <color name="md_theme_surfaceVariant">#1A1A1A</color>
+    <color name="md_theme_onSurfaceVariant">#B3B3B3</color>
+    
+    <color name="md_theme_outline">#333333</color>
+    <color name="md_theme_outlineVariant">#1F1F1F</color>
+    
+    <!-- Additional utility colors -->
+    <color name="neon_green">#00FF00</color>
+    <color name="neon_yellow">#FFFF00</color>
+    <color name="neon_pink">#FF10F0</color>
+    <color name="dark_gray">#1A1A1A</color>
+    <color name="medium_gray">#333333</color>
+    <color name="light_gray">#B3B3B3</color>
+</resources>
