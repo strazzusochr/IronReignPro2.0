@@ -1,19 +1,26 @@
-pluginManagement {
-    repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
-    }
+dependencies {
+    // Core Android libraries
+    implementation("androidx.core:core-ktx:1.13.1")
+    implementation("androidx.appcompat:appcompat:1.7.0")
+    implementation("com.google.android.material:material:1.12.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.2.0")
+    
+    // Navigation Component
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+    
+    // ARCore dependency for augmented reality capabilities
+    implementation("com.google.ar:core:1.44.0")
+    
+    // ML Kit Common (REQUIRED for all ML Kit features!)
+    implementation("com.google.mlkit:common:18.10.0")
+    
+    // ML Kit Pose Detection - Base library (REQUIRED!)
+    implementation("com.google.mlkit:pose-detection:18.0.0-beta4")
+    
+    // ML Kit Pose Detection - Accurate model (optional, for better accuracy)
+    implementation("com.google.mlkit:pose-detection-accurate:18.0.0-beta4")
+    
+    // MPAndroidChart for displaying progress graphs
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
 }
-
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-        maven { url 'https://jitpack.io' }
-    }
-}
-
-rootProject.name = "IronReignPro"
-include ':app'
