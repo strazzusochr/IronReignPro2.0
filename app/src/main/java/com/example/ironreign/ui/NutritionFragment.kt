@@ -15,6 +15,6 @@ class NutritionFragment : Fragment(R.layout.fragment_nutrition) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentNutritionBinding.bind(view)
         // Display the placeholder in the details TextView, leaving the heading unchanged
-        binding.textNutrition2.text = getString(R.string.nutrition_placeholder)
+        binding.textNutrition.text = getString(R.string.nutrition_placeholder)
     }
 }
