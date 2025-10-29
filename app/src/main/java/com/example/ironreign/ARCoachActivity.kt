@@ -15,25 +15,18 @@ import com.google.ar.core.exceptions.UnavailableArcoreNotInstalledException
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException
 import com.google.mlkit.vision.pose.PoseDetection
 import com.google.mlkit.vision.pose.PoseDetector
-import com.google.mlkit.vision.pose.PoseDetectorOptions
+// import com.google.mlkit.vision.pose.PoseDetectorOptions  // TEMPORARILY DISABLED
 
 /**
  * Activity for AR-based workout coaching experience.
- * Integrates ARCore for augmented reality and ML Kit for pose detection.
  * 
- * Features:
- * - Camera permission handling
- * - ARCore installation check
- * - ML Kit pose detection in stream mode
- * - Rep counting and audio feedback
- * - Pause/Resume functionality
- * 
- * Follows Modern Android Development practices with ViewBinding and lifecycle awareness.
+ * NOTE: Pose detection temporarily disabled due to build issues.
+ * This will be re-enabled once ML Kit dependencies are resolved.
  */
 class ARCoachActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityArcoachBinding
-    private lateinit var poseDetector: PoseDetector
+    // private lateinit var poseDetector: PoseDetector  // TEMPORARILY DISABLED
     private var mediaPlayer: MediaPlayer? = null
     private var arSession: Session? = null
     
@@ -54,9 +47,6 @@ class ARCoachActivity : AppCompatActivity() {
         checkPermissionsAndInitialize()
     }
 
-    /**
-     * Sets up UI click listeners and initial state.
-     */
     private fun setupUI() {
         binding.btnStopAr.setOnClickListener {
             finish()
@@ -69,9 +59,6 @@ class ARCoachActivity : AppCompatActivity() {
         updateRepCounter(0)
     }
 
-    /**
-     * Checks camera permission and initializes AR components.
-     */
     private fun checkPermissionsAndInitialize() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
             == PackageManager.PERMISSION_GRANTED) {
@@ -85,12 +72,8 @@ class ARCoachActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * Initializes ARCore and ML Kit pose detection.
-     */
     private fun initializeARComponents() {
         try {
-            // Check ARCore availability
             when (ArCoreApk.getInstance().requestInstall(this, true)) {
                 ArCoreApk.InstallStatus.INSTALL_REQUESTED -> {
                     updateStatus("📦 ARCore Installation wird angefordert...")
@@ -101,23 +84,22 @@ class ARCoachActivity : AppCompatActivity() {
                 }
             }
 
-            // Initialize ARCore session
             arSession = Session(this)
             arSession?.resume()
             updateStatus("✓ AR Session aktiv")
 
-            // Initialize ML Kit pose detector
+            // POSE DETECTION TEMPORARILY DISABLED
+            /*
             val options = PoseDetectorOptions.Builder()
                 .setDetectorMode(PoseDetectorOptions.STREAM_MODE)
                 .build()
             poseDetector = PoseDetection.getClient(options)
-            updatePoseInfo("Warte auf Pose Detection...")
+            */
+            updatePoseInfo("⚠️ Pose Detection temporär deaktiviert")
 
-            // Initialize audio feedback
             try {
                 mediaPlayer = MediaPlayer.create(this, R.raw.beep)
             } catch (e: Exception) {
-                // Beep sound file may not exist - non-critical
                 updateStatus("⚠️ Audio-Feedback nicht verfügbar")
             }
 
@@ -134,9 +116,6 @@ class ARCoachActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * Toggles pause state of AR session.
-     */
     private fun togglePause() {
         isPaused = !isPaused
         if (isPaused) {
@@ -150,29 +129,19 @@ class ARCoachActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * Updates rep counter display and plays feedback sound.
-     */
     private fun updateRepCounter(count: Int) {
         repCount = count
         binding.textRepCount.text = repCount.toString()
         
-        // Play beep on rep completion
         if (count > 0) {
             mediaPlayer?.start()
         }
     }
 
-    /**
-     * Updates status text in UI.
-     */
     private fun updateStatus(status: String) {
         binding.textStatus.text = status
     }
 
-    /**
-     * Updates pose information text in UI.
-     */
     private fun updatePoseInfo(info: String) {
         binding.textPoseInfo.text = info
     }
@@ -211,16 +180,16 @@ class ARCoachActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        // Clean up resources
+        // POSE DETECTOR CLEANUP TEMPORARILY DISABLED
+        /*
         try {
             poseDetector.close()
         } catch (e: Exception) {
-            // Detector may not have been initialized
         }
+        */
         mediaPlayer?.release()
         mediaPlayer = null
         arSession?.close()
         arSession = null
     }
 }
-
